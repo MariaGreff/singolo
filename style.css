@@ -131,6 +131,9 @@ li {
   cursor: pointer;
 }
 
+.arrow_hover:hover {
+  background-color: white;
+}
 .horizontal-iphone {
   margin-left: 19px;
   margin-top: -1px;
@@ -437,6 +440,10 @@ textarea {
   margin: 10px 0px;
 }
 
+.submit-button:hover {
+  background-color: #ad4843;
+}
+
 .contact-info {
   width: 324px;
   margin: 15px;
@@ -477,6 +484,10 @@ textarea {
   text-decoration: none;
 }
 
+.contact-info__line > a:hover {
+  text-decoration: underline;
+}
+
 /*footer*/
 .footer {
   color: #666d89;
@@ -510,4 +521,9 @@ textarea {
 .icon {
   cursor: pointer;
   padding-right: 8px;
+}
+
+.icon:hover {
+  background-color: #ea676b;
+  border-radius: 25px;
 }
