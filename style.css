@@ -275,6 +275,10 @@ li {
   color: #c5c5c5;
 }
 
+.portfolio__buttons > button {
+  outline: none;
+}
+
 .layout-4-columns {
   display: flex;
   flex-wrap: wrap;
@@ -282,12 +286,12 @@ li {
 }
 
 .portfolio__item {
-  padding: 0 20px 16px 0;
+  padding: 0 15px 16px 0;
 }
 
-.portfolio__item:nth-child(4n) {
+/* .portfolio__item:nth-child(4n) {
   padding: 0 0 18px 0;
-}
+} */
 
 .portfolio__item:nth-child(n + 13) {
   display: none;
@@ -435,13 +439,50 @@ textarea {
   padding: 0px 0 0px 10px;
 }
 
+textarea::placeholder {
+  color: #f48c8f;
+  padding: 10px;
+  padding-left: 0;
+}
 .submit-button {
   width: 100px;
   margin: 10px 0px;
+  background-color: #d6564f;
+  border: none;
+  border-radius: 3px;
 }
 
 .submit-button:hover {
   background-color: #ad4843;
+}
+
+#message-block {
+  position: fixed;
+  top: 20%;
+  left: 20%;
+  max-width: 70%;
+  padding: 30px 40px;
+  background: #0008;
+  border-radius: 5px;
+}
+
+#message-block > p {
+  color: #d6564f;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+#message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 2px solid #ea676b;
+  text-align: center;
 }
 
 .contact-info {
