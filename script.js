@@ -1,3 +1,4 @@
+// header
 const MENU = document.getElementById("menu");
 const SUBMIT_BUTTON = document.getElementById("btn");
 const CLOSE_BUTTON = document.getElementById("close-btn");
@@ -6,6 +7,90 @@ MENU.addEventListener("click", event => {
   MENU.querySelectorAll("a").forEach(el => el.classList.remove("active"));
   event.target.classList.add("active");
 });
+
+//slider
+
+const slider = document.querySelector(".slider");
+
+slider.addEventListener("click", event => {
+  const { target } = event;
+
+  if (target.closest(".vertical-iphone")) {
+    slider
+      .querySelector(".slider__phone-background-one")
+      .classList.toggle("hidden");
+  }
+
+  if (target.closest(".horizontal-iphone")) {
+    slider
+      .querySelector(".slider__phone-background-second")
+      .classList.toggle("hidden");
+  }
+
+  if (target.closest(".left-arrow")) {
+    slider
+      .querySelector(".slider__phone_horizontal-second")
+      .classList.toggle("hidden");
+  }
+
+  if (target.closest(".right-arrow")) {
+    slider
+      .querySelector(".slider__phone_horizontal-second")
+      .classList.toggle("hidden");
+  }
+});
+
+//portfolio
+
+const portfolioButtons = document.querySelector(".portfolio__buttons");
+const portfolioButtonItems = portfolioButtons.querySelectorAll(".button");
+const portfolioImages = document.querySelector(".portfolio__items");
+const portfolioImagesItems = portfolioImages.querySelectorAll("img");
+
+portfolioButtons.addEventListener("click", event => {
+  if (
+    event.target.closest(".button") &&
+    !event.target.closest(".button").classList.contains("button_selected")
+  ) {
+    portfolioButtonItems.forEach(button =>
+      button.classList.remove("button_selected")
+    );
+    event.target.closest(".button").classList.add("button_selected");
+    let orderArr = [];
+    for (let i = 0; i < portfolioImagesItems.length; i++) {
+      orderArr[i] = i;
+    }
+    orderArr.sort(randomSort);
+    portfolioButtonItems.forEach(button =>
+      button.classList.remove("button_selected")
+    );
+    event.target.closest(".button").classList.add("button_selected");
+    portfolioImagesItems.forEach((image, i) => {
+      image.style.order = orderArr[i];
+      image.classList.remove("portfolio__item_active");
+    });
+  }
+});
+
+portfolioImages.addEventListener("click", event => {
+  let image = event.target;
+  if (image.tagName.toLowerCase() === "img") {
+    if (image.classList.contains("portfolio__item_active")) {
+      image.classList.remove("portfolio__item_active");
+    } else {
+      portfolioImagesItems.forEach(image =>
+        image.classList.remove("portfolio__item_active")
+      );
+      image.classList.add("portfolio__item_active");
+    }
+  }
+});
+
+function randomSort(a, b) {
+  return Math.random() * 10 - Math.random() * 10;
+}
+
+//form
 
 SUBMIT_BUTTON.addEventListener("click", () => {
   let subject = document.getElementById("subject").value.toString();
@@ -21,37 +106,3 @@ CLOSE_BUTTON.addEventListener("click", () => {
   document.getElementById("result").innerText = " ";
   document.getElementById("message-block").classList.add("hidden");
 });
-
-const addButtonsClickedHandler = () => {
-  document.querySelector(".portfolio__buttons").addEventListener("click", e => {
-    if (e.target.classList.contains("button")) {
-      let clickedButton = e.target;
-      removeSelectedButtons();
-      selectClickedButton(clickedButton);
-    }
-  });
-};
-
-const removeSelectedButtons = () => {
-  let buttons = document.querySelectorAll(".button");
-  buttons.forEach(button => {
-    button.classList.remove("button_selected");
-    let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-    let arrayRandom = [];
-    for (let i = 0; i < 12; i++) {
-      let randomNumber = Math.ceil(Math.random() * array.length - 1);
-      arrayRandom.push(array.splice(randomNumber, 1));
-    }
-    let j = 0;
-    document.querySelectorAll(".portfolio__item").forEach(item => {
-      item.style.order = arrayRandom[j];
-      j++;
-    });
-  });
-};
-
-const selectClickedButton = clickedButton => {
-  clickedButton.classList.add("button_selected");
-};
-
-addButtonsClickedHandler();
