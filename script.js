@@ -8,6 +8,40 @@ MENU.addEventListener("click", event => {
   event.target.classList.add("active");
 });
 
+//hamburger
+
+const burgerButton = document.querySelector(".header-burger");
+const burgerNav = document.querySelector("nav");
+
+burgerButton.onclick = function() {
+  burgerButton.classList.toggle("burger-active");
+  burgerNav.classList.toggle("burger-active");
+  burgerNav.classList.toggle("shadow");
+  document.querySelector(".logo").classList.toggle("logo-burger");
+  document.querySelector("body").classList.toggle("lock");
+};
+
+document.addEventListener(
+  "click",
+  e => {
+    let isBurgerActive = document
+      .querySelector(".header-burger")
+      .classList.contains("burger-active");
+    if (
+      (isBurgerActive && e.target.tagName === "A") ||
+      e.target.tagName === "NAV"
+    ) {
+      document
+        .querySelector(".header-burger")
+        .classList.remove("burger-active");
+      document.querySelector("nav").classList.remove("burger-active");
+      burgerNav.classList.remove("shadow");
+      document.querySelector(".logo").classList.remove("burger-active");
+      document.querySelector("body").classList.remove("lock");
+    }
+  },
+  true
+);
 //slider
 
 const slider = document.querySelector(".slider");

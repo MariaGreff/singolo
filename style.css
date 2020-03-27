@@ -49,6 +49,11 @@ li {
   border-bottom: 6px solid #323746;
 }
 
+.holder {
+  display: flex;
+  align-items: center;
+}
+
 .header-container {
   display: flex;
   flex-direction: row;
@@ -346,10 +351,10 @@ li {
   background-color: #f2f2f2;
   color: #666d89;
   border-bottom: 6px solid #ffffff;
-  margin: 61px 0 3px 0;
 }
 
 .about-us__header {
+  padding: 52px 0 3px 0;
   margin: 0;
   font-size: 30px;
   font-weight: 900;
@@ -369,7 +374,7 @@ li {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .employee {
@@ -439,7 +444,7 @@ li {
   display: flex;
   flex-wrap: wrap;
   margin: 0;
-  width: 1020px;
+  max-width: 1020px;
 }
 
 fieldset {
@@ -532,7 +537,7 @@ textarea::placeholder {
 }
 
 .contact-info {
-  width: 324px;
+  max-width: 324px;
   margin: 15px;
   margin-top: 0px;
   margin-right: 0px;
@@ -584,13 +589,10 @@ textarea::placeholder {
 .footer-wrapper {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
 }
 
 .icon-list {
   margin: 22px;
-  /* display: flex;
-  justify-content: center; */
 }
 
 .icons {
@@ -618,8 +620,8 @@ textarea::placeholder {
     margin: 0 40px;
   }
 
-  .header-container {
-    justify-content: normal;
+  .navigation {
+    padding-right: 40px;
   }
 
   .slider__wrapper {
@@ -631,7 +633,6 @@ textarea::placeholder {
     justify-content: stretch;
     padding: 0;
     max-width: 768px;
-    margin: 0 30px;
   }
   .vertical-iphone {
     transform: scale(0.77);
@@ -649,7 +650,6 @@ textarea::placeholder {
     max-width: 700px;
   }
   .layout-3-columns__employees {
-    flex-wrap: nowrap;
     justify-content: stretch;
   }
   .employee {
@@ -665,6 +665,7 @@ textarea::placeholder {
   }
   .employee {
     max-width: 219px;
+    margin-right: 14.5px;
   }
 
   .employee__description {
@@ -682,25 +683,165 @@ textarea::placeholder {
   textarea {
     max-width: 442px;
   }
+
+  .icon-list {
+    margin-left: 268px;
+  }
 }
 
 @media (max-width: 375px) {
+  .body {
+    max-width: 375px;
+  }
+
+  .wrapper {
+    max-width: 335px;
+    margin: 0 20px;
+  }
+
+  .header-container {
+    max-width: 355px;
+    padding: 5px 0;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: white;
+    letter-spacing: -0.82px;
+    z-index: 5;
+  }
+
+  .header-burger {
+    position: relative;
+    width: 30px;
+    height: 20px;
+    transition: all 0.5s ease;
+    z-index: 5;
+    margin-right: 103px;
+  }
+  .header-burger span {
+    position: absolute;
+    background-color: white;
+    left: 0;
+    width: 25px;
+    height: 3px;
+    border-radius: 15px;
+    top: 9px;
+    z-index: 5;
+  }
+  .header-burger::before,
+  .header-burger::after {
+    content: "";
+    background-color: white;
+    border-radius: 15px;
+    position: absolute;
+    left: 0;
+    width: 25px;
+    height: 3px;
+    z-index: 5;
+  }
+  .header-burger::before {
+    top: 1px;
+  }
+  .header-burger::after {
+    bottom: 0;
+  }
+  nav {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    max-width: 278px;
+    height: 100%;
+    background-color: #2d303a;
+    display: block;
+    margin: 0;
+    transition: all 0.5s ease;
+  }
+  .navigation-menu {
+    display: block;
+    margin-top: 155px;
+    margin-left: 71px;
+  }
+  .navigation-menu > li {
+    display: block;
+    margin-top: 15px;
+    font-size: 18px;
+  }
+  .navigation-menu > li:first-child {
+    margin-left: 28px;
+  }
+
+  li:not(:last-child)::after {
+    content: "";
+  }
+
+  .header-burger.burger-active {
+    transform: rotate(90deg);
+    z-index: 5;
+  }
+  nav.burger-active {
+    left: 0;
+    z-index: 4;
+    width: 278px;
+  }
+  body.lock {
+    overflow: hidden;
+  }
+  .logo-burger {
+    justify-content: start;
+  }
+  .shadow::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #2d303a;
+    opacity: 0.6;
+    z-index: -1;
+  }
+
+  .slider-items {
+    max-height: 220px;
+    padding: 0;
+  }
+
   .vertical-iphone {
     transform: scale(0.37);
+    margin-left: -70px;
   }
   .horizontal-iphone {
     transform: scale(0.37);
+    margin-left: -200px;
+  }
+  .right-arrow {
+    margin-left: -150px;
+  }
+  .layout-4-columns > img {
+    margin: 0 5px 5px 0;
   }
 
   .portfolio__items > img {
-    transform: scale(0.7);
-    max-width: 375px;
+    width: 48%;
   }
 
   .layout-3-columns__employees {
     flex-wrap: wrap;
   }
   .employee > img {
-    transform: scale(0.5);
+    width: 108%;
+  }
+
+  input,
+  textarea {
+    max-width: 309px;
+  }
+
+  .icon-list {
+    margin-left: 92px;
   }
 }
