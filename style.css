@@ -62,8 +62,9 @@ li {
   padding: 15px 0;
 }
 
-.navigation {
+nav {
   padding-top: 7px;
+  padding-left: 360px;
 }
 
 .logo {
@@ -442,7 +443,7 @@ li {
 
 .layout-2-column {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin: 0;
   max-width: 1020px;
 }
@@ -589,6 +590,7 @@ textarea::placeholder {
 .footer-wrapper {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .icon-list {
