@@ -622,8 +622,9 @@ textarea::placeholder {
     margin: 0 40px;
   }
 
-  .navigation {
+  nav {
     padding-right: 40px;
+    padding-left: 140px;
   }
 
   .slider__wrapper {
@@ -677,6 +678,10 @@ textarea::placeholder {
     max-width: 689px;
   }
 
+  .layout-2-column {
+    flex-wrap: wrap;
+  }
+
   .contact-info__text {
     max-width: 221px;
   }
@@ -684,10 +689,6 @@ textarea::placeholder {
   input,
   textarea {
     max-width: 442px;
-  }
-
-  .icon-list {
-    margin-left: 268px;
   }
 }
 
@@ -752,6 +753,7 @@ textarea::placeholder {
     bottom: 0;
   }
   nav {
+    padding-left: 0;
     position: fixed;
     left: -100%;
     top: 0;
@@ -841,9 +843,5 @@ textarea::placeholder {
   input,
   textarea {
     max-width: 309px;
-  }
-
-  .icon-list {
-    margin-left: 92px;
   }
 }
