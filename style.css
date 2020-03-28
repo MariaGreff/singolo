@@ -686,19 +686,20 @@ textarea::placeholder {
     max-width: 221px;
   }
 
-  input,
-  textarea {
+  input {
     max-width: 442px;
+  }
+  textarea {
+    max-width: 431px;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 414px) {
   .body {
     max-width: 375px;
   }
 
   .wrapper {
-    max-width: 335px;
     margin: 0 20px;
   }
 
@@ -706,6 +707,10 @@ textarea::placeholder {
     max-width: 355px;
     padding: 5px 0;
     justify-content: space-between;
+  }
+
+  .header__wrapper {
+    max-width: 355px;
   }
 
   .logo {
@@ -812,6 +817,11 @@ textarea::placeholder {
   .slider-items {
     max-height: 220px;
     padding: 0;
+    max-width: 355px;
+  }
+
+  .slider__wrapper {
+    max-width: 355px;
   }
 
   .vertical-iphone {
@@ -833,15 +843,51 @@ textarea::placeholder {
     width: 48%;
   }
 
-  .layout-3-columns__employees {
-    flex-wrap: wrap;
-  }
-  .employee > img {
-    width: 108%;
+  .portfolio__wrapper {
+    max-width: 335px;
   }
 
-  input,
+  .about-us__wrapper {
+    max-width: 335px;
+  }
+  .layout-3-columns__employees {
+    display: block;
+  }
+  .employee {
+    margin-bottom: 34px;
+    margin-left: 10px;
+  }
+  .employee > img {
+    width: 315px;
+    height: 315px;
+  }
+
+  .employee:last-child {
+    padding: 0;
+  }
+
+  .employee__description {
+    max-width: 100%;
+  }
+  .contact-us__wrapper {
+    max-width: 335px;
+  }
+  input {
+    max-width: 329px;
+    margin-bottom: 0;
+  }
+
   textarea {
-    max-width: 309px;
+    max-width: 318px;
+  }
+
+  .submit-button {
+    width: 330px;
+  }
+  .contact-info__text {
+    max-width: 100%;
+  }
+  .footer-wrapper {
+    max-width: 335px;
   }
 }
